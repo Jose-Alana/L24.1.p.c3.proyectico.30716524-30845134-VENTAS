@@ -18,18 +18,24 @@ export default class Cl_tienda {
         return this._porcIncremento;
     }
 
-    agregarVenta(venta){
+    agregarVenta(venta) {
         this.ventas.push(venta);
     }
-    //modificarVenta()
-
+    
     eliminarVenta(factura){
         factura = +factura;
         let indexVenta = -1;
         for (let i = 0; i < this.ventas.length; i++)
-         if(this.ventas[i].factura == factura) indexVenta = i;
+        if(this.ventas[i].factura == factura) indexVenta = i;
         if(indexVenta !== -1) this.ventas.splice(indexVenta, 1);
         return indexVenta !== -1;
     }
-
+    montoFinalCaja(){
+    
+    let acumMonto = 0.0;
+        for (let i = 0; i < this.ventas.length; i++) { 
+        acumMonto += this.ventas[i].precio();
+    }
+    return acumMonto;
+}
 }
