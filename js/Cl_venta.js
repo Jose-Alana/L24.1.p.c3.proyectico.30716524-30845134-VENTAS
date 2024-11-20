@@ -1,10 +1,10 @@
 export default class Cl_venta {
-    constructor(cliente, factura, costo, cnArticulos, incremento) {
+    constructor(cliente, factura, costo, cnArticulos, porcIncremento) {
         this.cliente = cliente;
         this.factura = factura;
         this.costo = costo;
         this.cnArticulos = cnArticulos;
-        this.incremento = incremento;
+        this.porcIncremento = 25;
     }
     set cliente(cliente) {
         this._cliente = cliente;
@@ -30,18 +30,18 @@ export default class Cl_venta {
     get cnArticulos() {
         return this._cnArticulos;
     }
-    set incremento(incremento) {
-        this._incremento = +incremento;
+    set porcIncremento(porcIncremento) {
+        this._porcIncremento = +porcIncremento;
     }
-    get incremento(){
-        return this._incremento;
+    get porcIncremento(){
+        return this._porcIncremento;
     }
 
     porcentajeIncremento() {
-        return this.costo * (this.incremento / 100);
+        return this.costo * (this.porcIncremento / 100);
     }
 
     precio(){
-        return this.costo + this.porcentajeIncremento();
+       return this.costo + this.porcentajeIncremento();
     }
 }
